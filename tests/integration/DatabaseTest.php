@@ -13,23 +13,9 @@ class DatabaseTest extends TestCase
     public function testCanStoreInDatabase()
     {
         $packageBuilder = new PackageBuilder();
-        $databaseFile = tempnam("/tmp", "db-");
-        $packageBuilder->createDatabase($databaseFile);
+        $packageBuilder->createDatabase();
+        $packageBuilder->seed();
 
-        $conf = (new Conf)->fromJsonString(Conf::VALIDJSON);
-        $models = (new Models)->fromJsonString(Models::VALIDJSON);
-        $decks = (new Decks)->fromJsonString(Decks::VALIDJSON);
-        error_reporting(E_ALL);
-        ini_set('display_errors', 1);
-        $dconf = (new DConf)->fromJsonString(DConf::VALIDJSON);
-
-        $col = new Col();
-        $col->conf = $conf;
-        $col->models = $models;
-        $col->decks = $decks;
-        $col->dconf = $dconf;
-
-        $col->save();
         $savedCol = Col::all()->first();
 
         $conf = $savedCol->conf;
