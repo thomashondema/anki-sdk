@@ -1,0 +1,24 @@
+{
+    "name": "thomashondema/anki-sdk",
+    "type": "library",
+    "version": "1.0",
+    "require": {
+        "illuminate/database": "^8.28",
+        "illuminate/filesystem": "^8.28",
+        "netresearch/jsonmapper": "^4.0",
+        "json-mapper/json-mapper": "^2.2"
+    },
+    "autoload": {
+        "psr-4": {"AnkiSDK\\": "src/"}
+    },
+    "license": "cc",
+    "authors": [
+        {
+            "name": "Thomas Hondema",
+            "email": "thomashondema@live.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    }
+}
